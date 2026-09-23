@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ny">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags for Google Search & SEO -->
+  <title>Chitibu World Wide Music - Mvera Ndi Tsitsa Nyimbo Zaulere</title>
+  <meta name="title" content="Chitibu World Wide Music - Free MP3 Music Streaming & Downloads">
+  <meta name="description" content="Sankhani, mverani ndikutsitsa nyimbo zatsopano ndi zaulere kuchokera kwa Chitibu pa Chitibu World Wide Music. Download latest African music, Afrobeat, Amapiano & Gospel MP3s.">
+  <meta name="keywords" content="Chitibu, Chitibu World Wide Music, download free MP3, Malawi music, Afrobeat, Amapiano, Gospel music, play music free">
+  <meta name="author" content="Chitibu">
+  <meta name="robots" content="index, follow">
+
+  <!-- Social Media & Google Card Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chitibuworldwidemusic.github.io/">
+  <meta property="og:title" content="Chitibu World Wide Music">
+  <meta property="og:description" content="Stream & Download latest free MP3 songs from Chitibu.">
+  <meta property="og:image" content="https://picsum.photos/1200/630?music">
+
+  <!-- Google Structured Data for Music Indexing -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "Chitibu World Wide Music",
+    "url": "https://chitibuworldwidemusic.github.io/",
+    "genre": ["Afrobeat", "Amapiano", "Hip-Hop", "Gospel", "Reggae"],
+    "description": "Official free music streaming and download platform for Chitibu."
+  }
+  </script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0b0f17;
+      color: #f3f4f6;
+    }
+    .glass-card {
+      background: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .neon-glow {
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.25);
+    }
+  </style>
+</head>
+<body class="pb-32 min-h-screen">
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 glass-card border-b border-gray-800/80">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center justify-between w-full md:w-auto">
+        <a href="#" class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center neon-glow">
+            <i data-lucide="music-4" class="w-6 h-6 text-white"></i>
+          </div>
+          <div>
+            <h1 class="text-xl font-bold tracking-tight bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent">
+              Chitibu World Wide Music
+            </h1>
+            <p class="text-xs text-purple-400 font-medium">Official Free Music Hub</p>
+          </div>
+        </a>
+        <button id="adminToggleBtn" onclick="toggleAdminModal()" class="md:hidden p-2 text-gray-400 hover:text-white">
+          <i data-lucide="lock" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Search & Filters -->
+      <div class="flex items-center gap-3 w-full md:w-auto flex-1 max-w-xl">
+        <div class="relative w-full">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+          <input 
+            type="text" 
+            id="searchInput" 
+            oninput="handleSearch()"
+            placeholder="Fufuzani dzina la nyimbo kapena genre..." 
+            class="w-full bg-gray-900/90 border border-gray-700/60 rounded-xl pl-9 pr-4 py-2 text-sm focus:outline-none focus:border-purple-500 text-gray-100 placeholder-gray-500"
+          >
+        </div>
+      </div>
+
+      <!-- Admin Open Button -->
+      <button 
+        onclick="toggleAdminModal()" 
+        class="hidden md:flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-600/20 hover:bg-purple-600/30 text-purple-300 border border-purple-500/30 text-sm font-semibold transition"
+      >
+        <i data-lucide="shield-check" class="w-4 h-4"></i>
+        Admin Upload Panel
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="max-w-7xl mx-auto px-4 mt-6">
+    <div class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-purple-900/40 via-gray-900 to-slate-900 border border-purple-500/20 p-8 md:p-12">
+      <div class="relative z-10 max-w-2xl">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20 mb-4">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Zaulere Zosatha (100% Free MP3)
+        </span>
+        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
+          Mverani Ndi Kutsitsa Nyimbo Zatsopano Za Chitibu
+        </h2>
+        <p class="text-gray-400 text-sm md:text-base mb-6">
+          Kulandiridwa pa Chitibu World Wide Music. Mverani pa intaneti kapena panga download nyimbo zilizonse kwaulere.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Genre Filter Chips -->
+  <section class="max-w-7xl mx-auto px-4 mt-8">
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="genreContainer">
+      <button onclick="filterGenre('All')" class="genre-btn active px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-purple-600 text-white">Zonse</button>
+      <button onclick="filterGenre('Afrobeat')" class="genre-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-gray-800 text-gray-300 hover:bg-gray-700">Afrobeat</button>
+      <button onclick="filterGenre('Amapiano')" class="genre-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-gray-800 text-gray-300 hover:bg-gray-700">Amapiano</button>
+      <button onclick="filterGenre('Hip-Hop')" class="genre-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-gray-800 text-gray-300 hover:bg-gray-700">Hip-Hop</button>
+      <button onclick="filterGenre('Gospel')" class="genre-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-gray-800 text-gray-300 hover:bg-gray-700">Gospel</button>
+      <button onclick="filterGenre('Reggae')" class="genre-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-gray-800 text-gray-300 hover:bg-gray-700">Reggae</button>
+      <button onclick="filterGenre('Dancehall')" class="genre-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-gray-800 text-gray-300 hover:bg-gray-700">Dancehall</button>
+    </div>
+  </section>
+
+  <!-- Main Music Feed Grid -->
+  <main class="max-w-7xl mx-auto px-4 mt-6">
+    <div class="flex items-center justify-between mb-6">
+      <h3 class="text-xl font-bold text-white flex items-center gap-2">
+        <i data-lucide="disc" class="w-5 h-5 text-purple-400"></i>
+        Nyimbo Zoyikidwa hivi posachedwa
+      </h3>
+      <span id="trackCount" class="text-xs text-gray-400">Showing 0 tracks</span>
+    </div>
+
+    <div id="musicGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Tracks rendered dynamically via JavaScript -->
+    </div>
+  </main>
+
+  <!-- Persistent Bottom Audio Player Bar -->
+  <div id="playerBar" class="fixed bottom-0 left-0 right-0 glass-card border-t border-purple-500/20 px-4 py-3 z-50 transform translate-y-full transition-transform duration-300">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <!-- Track Details -->
+      <div class="flex items-center gap-3 w-full md:w-1/4">
+        <img id="playerCover" src="" alt="Cover" class="w-12 h-12 rounded-lg object-cover bg-gray-800">
+        <div class="truncate">
+          <h4 id="playerTitle" class="text-sm font-bold text-white truncate">Select a song</h4>
+          <p id="playerArtist" class="text-xs text-purple-400 truncate">Chitibu</p>
+        </div>
+      </div>
+
+      <!-- Native Audio Controls -->
+      <div class="w-full md:w-2/4">
+        <audio id="mainAudio" controls class="w-full h-10 accent-purple-500"></audio>
+      </div>
+
+      <!-- Quick Download Button -->
+      <div class="hidden md:flex items-center justify-end w-1/4">
+        <a id="playerDownloadBtn" href="#" download class="flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold transition">
+          <i data-lucide="download" class="w-4 h-4"></i> Download MP3
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Modal (For Uploading Tracks directly) -->
+  <div id="adminModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+    <div class="glass-card max-w-lg w-full rounded-2xl border border-purple-500/30 p-6 relative max-h-[90vh] overflow-y-auto">
+      <button onclick="toggleAdminModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-6">
+        <i data-lucide="upload-cloud" class="w-6 h-6 text-purple-400"></i>
+        <h3 class="text-lg font-bold text-white">Admin Upload Panel</h3>
+      </div>
+
+      <form id="uploadForm" onsubmit="handleTrackUpload(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Dzina La Nyimbo (Song Title) *</label>
+          <input type="text" id="songTitle" required placeholder="e.g. Chitibu - Golden Vibe" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-purple-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Genre *</label>
+          <select id="songGenre" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-purple-500">
+            <option value="Afrobeat">Afrobeat</option>
+            <option value="Amapiano">Amapiano</option>
+            <option value="Hip-Hop">Hip-Hop</option>
+            <option value="Gospel">Gospel</option>
+            <option value="Reggae">Reggae</option>
+            <option value="Dancehall">Dancehall</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Sankhani Nyimbo (MP3 File) *</label>
+          <input type="file" id="songFileInput" accept="audio/mp3,audio/wav" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-xs text-gray-300 focus:outline-none focus:border-purple-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Sankhani Chithunzi Cha Nyimbo (Cover Image)</label>
+          <input type="file" id="songImageInput" accept="image/*" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-xs text-gray-300 focus:outline-none focus:border-purple-500">
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm transition neon-glow">
+          Panga Upload Nyimbo Izi
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript Application Logic -->
+  <script>
+    // Initial Seed Tracks
+    const initialTracks = [
+      {
+        id: "1",
+        title: "Chitibu - Warm Welcome",
+        artist: "Chitibu",
+        genre: "Afrobeat",
+        cover: "https://picsum.photos/400/400?random=1",
+        audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        views: 124,
+        likes: 45,
+        comments: ["Track yabwino kwambiri!", "Keep it up Chitibu!"]
+      }
+    ];
+
+    let tracks = JSON.parse(localStorage.getItem("chitibu_tracks")) || initialTracks;
+    let activeGenre = "All";
+    let activeSearch = "";
+
+    // Save to LocalStorage
+    function saveTracks() {
+      localStorage.setItem("chitibu_tracks", JSON.stringify(tracks));
+    }
+
+    // Render Music Cards
+    function renderTracks() {
+      const grid = document.getElementById("musicGrid");
+      grid.innerHTML = "";
+
+      const filtered = tracks.filter(track => {
+        const matchesGenre = activeGenre === "All" || track.genre === activeGenre;
+        const matchesSearch = track.title.toLowerCase().includes(activeSearch.toLowerCase()) || 
+                              track.genre.toLowerCase().includes(activeSearch.toLowerCase());
+        return matchesGenre && matchesSearch;
+      });
+
+      document.getElementById("trackCount").textContent = `Showing ${filtered.length} tracks`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-12 text-center text-gray-500">
+            <p>Pano palibe nyimbo iliyonse. Ingowonjezani pa Admin Upload.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(track => {
+        const card = document.createElement("div");
+        card.className = "glass-card rounded-2xl overflow-hidden p-4 border border-gray-800 hover:border-purple-500/40 transition flex flex-col justify-between";
+        card.innerHTML = `
+          <div>
+            <div class="relative rounded-xl overflow-hidden group mb-3 aspect-square bg-gray-900">
+              <img src="${track.cover}" alt="${track.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <button onclick="playTrack('${track.id}')" class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                <div class="w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center neon-glow">
+                  <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
+                </div>
+              </button>
+            </div>
+
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-md border border-purple-500/20">${track.genre}</span>
+              <span class="text-xs text-gray-400 flex items-center gap-1">
+                <i data-lucide="eye" class="w-3.5 h-3.5"></i> ${track.views || 0} views
+              </span>
+            </div>
+
+            <h4 class="font-bold text-white text-base truncate mb-1" title="${track.title}">${track.title}</h4>
+            <p class="text-xs text-gray-400 mb-3">${track.artist}</p>
+          </div>
+
+          <div>
+            <!-- Action Buttons: Play, Like, Download -->
+            <div class="flex items-center gap-2 mb-3 pt-2 border-t border-gray-800/60">
+              <button onclick="playTrack('${track.id}')" class="flex-1 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition">
+                <i data-lucide="play" class="w-3.5 h-3.5"></i> Play
+              </button>
+              
+              <button onclick="likeTrack('${track.id}')" class="px-3 py-2 rounded-xl bg-gray-800 hover:bg-gray-700 text-pink-400 text-xs font-bold flex items-center gap-1 transition">
+                <i data-lucide="heart" class="w-3.5 h-3.5 fill-pink-400"></i> ${track.likes || 0}
+              </button>
+
+              <a href="${track.audio}" download="${track.title}.mp3" onclick="registerDownload('${track.id}')" class="px-3 py-2 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs font-bold flex items-center gap-1 transition" title="Download MP3">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+
+            <!-- Comment Section -->
+            <div class="bg-gray-900/60 rounded-xl p-2.5 text-xs">
+              <div class="max-h-16 overflow-y-auto space-y-1 mb-2 text-gray-400" id="comments-${track.id}">
+                ${(track.comments || []).map(c => `<p class="border-b border-gray-800/40 pb-0.5">• ${c}</p>`).join('')}
+              </div>
+              <div class="flex gap-1">
+                <input type="text" id="input-comment-${track.id}" placeholder="Siya ndemanga (comment)..." class="flex-1 bg-gray-800 border border-gray-700 rounded-lg px-2 py-1 text-[11px] text-white focus:outline-none">
+                <button onclick="addComment('${track.id}')" class="px-2 py-1 bg-purple-600/80 hover:bg-purple-600 text-white rounded-lg text-[11px] font-semibold">Post</button>
+              </div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      lucide.createIcons();
+    }
+
+    // Play Music Track & Increment Views
+    function playTrack(id) {
+      const track = tracks.find(t => t.id === id);
+      if (!track) return;
+
+      track.views = (track.views || 0) + 1;
+      saveTracks();
+      renderTracks();
+
+      const playerBar = document.getElementById("playerBar");
+      const playerCover = document.getElementById("playerCover");
+      const playerTitle = document.getElementById("playerTitle");
+      const playerArtist = document.getElementById("playerArtist");
+      const playerDownloadBtn = document.getElementById("playerDownloadBtn");
+      const mainAudio = document.getElementById("mainAudio");
+
+      playerCover.src = track.cover;
+      playerTitle.textContent = track.title;
+      playerArtist.textContent = track.artist;
+      playerDownloadBtn.href = track.audio;
+      playerDownloadBtn.download = `${track.title}.mp3`;
+
+      mainAudio.src = track.audio;
+      mainAudio.play();
+
+      playerBar.classList.remove("translate-y-full");
+    }
+
+    // Like Track
+    function likeTrack(id) {
+      const track = tracks.find(t => t.id === id);
+      if (track) {
+        track.likes = (track.likes || 0) + 1;
+        saveTracks();
+        renderTracks();
+      }
+    }
+
+    // Add Comment
+    function addComment(id) {
+      const input = document.getElementById(`input-comment-${id}`);
+      if (!input || !input.value.trim()) return;
+
+      const track = tracks.find(t => t.id === id);
+      if (track) {
+        if (!track.comments) track.comments = [];
+        track.comments.push(input.value.trim());
+        saveTracks();
+        renderTracks();
+      }
+    }
+
+    // Direct File Upload via Admin Panel
+    function handleTrackUpload(e) {
+      e.preventDefault();
+
+      const title = document.getElementById("songTitle").value;
+      const genre = document.getElementById("songGenre").value;
+      const songFileInput = document.getElementById("songFileInput").files[0];
+      const songImageInput = document.getElementById("songImageInput").files[0];
+
+      if (!songFileInput) return;
+
+      const audioReader = new FileReader();
+      audioReader.onload = function(event) {
+        const audioDataUrl = event.target.result;
+
+        let coverDataUrl = `https://picsum.photos/400/400?random=${Date.now()}`;
+
+        if (songImageInput) {
+          const imageReader = new FileReader();
+          imageReader.onload = function(imgEvent) {
+            coverDataUrl = imgEvent.target.result;
+            addNewTrackObject(title, genre, audioDataUrl, coverDataUrl);
+          };
+          imageReader.readAsDataURL(songImageInput);
+        } else {
+          addNewTrackObject(title, genre, audioDataUrl, coverDataUrl);
+        }
+      };
+
+      audioReader.readAsDataURL(songFileInput);
+    }
+
+    function addNewTrackObject(title, genre, audioUrl, coverUrl) {
+      const newTrack = {
+        id: Date.now().toString(),
+        title: title,
+        artist: "Chitibu",
+        genre: genre,
+        cover: coverUrl,
+        audio: audioUrl,
+        views: 0,
+        likes: 0,
+        comments: []
+      };
+
+      tracks.unshift(newTrack);
+      saveTracks();
+      renderTracks();
+
+      document.getElementById("uploadForm").reset();
+      toggleAdminModal();
+      alert("Nyimbo yanu ya-uploaded kikamilifu! Anthu tsopano atha kuyimvera ndikuyitsitsa.");
+    }
+
+    // Filter & Search Handlers
+    function filterGenre(genre) {
+      activeGenre = genre;
+      document.querySelectorAll(".genre-btn").forEach(btn => {
+        if (btn.textContent.trim() === genre || (genre === 'All' && btn.textContent.trim() === 'Zonse')) {
+          btn.className = "genre-btn active px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-purple-600 text-white";
+        } else {
+          btn.className = "genre-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-gray-800 text-gray-300 hover:bg-gray-700";
+        }
+      });
+      renderTracks();
+    }
+
+    function handleSearch() {
+      activeSearch = document.getElementById("searchInput").value;
+      renderTracks();
+    }
+
+    function toggleAdminModal() {
+      const modal = document.getElementById("adminModal");
+      modal.classList.toggle("hidden");
+    }
+
+    // App Initialization
+    document.addEventListener("DOMContentLoaded", () => {
+      renderTracks();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
