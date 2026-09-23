@@ -156,49 +156,79 @@
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
-      <div class="flex items-center gap-2 mb-6">
-        <i data-lucide="upload-cloud" class="w-6 h-6 text-purple-400"></i>
-        <h3 class="text-lg font-bold text-white">Admin Upload Panel</h3>
+      <!-- Password Lock Screen View -->
+      <div id="passwordSection" class="space-y-4">
+        <div class="flex items-center gap-2 mb-2">
+          <i data-lucide="lock" class="w-6 h-6 text-purple-400"></i>
+          <h3 class="text-lg font-bold text-white">Admin Access Restricted</h3>
+        </div>
+        <p class="text-xs text-gray-400">Enter Admin Password to unlock music upload panel.</p>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Admin Password</label>
+          <input type="password" id="adminPasswordInput" placeholder="Enter password..." class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-purple-500">
+        </div>
+
+        <button onclick="checkPassword()" class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm transition neon-glow">
+          Unlock Upload Panel
+        </button>
       </div>
 
-      <form id="uploadForm" onsubmit="handleTrackUpload(event)" class="space-y-4">
-        <div>
-          <label class="block text-xs font-semibold text-gray-300 mb-1">Song Title *</label>
-          <input type="text" id="songTitle" required placeholder="e.g. Chitibu - Dear Mama" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-purple-500">
+      <!-- Upload Form View (Hidden until correct password) -->
+      <div id="uploadFormSection" class="hidden">
+        <div class="flex items-center justify-between mb-6">
+          <div class="flex items-center gap-2">
+            <i data-lucide="upload-cloud" class="w-6 h-6 text-purple-400"></i>
+            <h3 class="text-lg font-bold text-white">Admin Upload Panel</h3>
+          </div>
+          <button onclick="lockAdminPanel()" class="text-xs text-purple-400 hover:underline flex items-center gap-1">
+            <i data-lucide="lock" class="w-3.5 h-3.5"></i> Lock
+          </button>
         </div>
 
-        <div>
-          <label class="block text-xs font-semibold text-gray-300 mb-1">Genre *</label>
-          <select id="songGenre" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-purple-500">
-            <option value="Afrobeat">Afrobeat</option>
-            <option value="Amapiano">Amapiano</option>
-            <option value="Hip-Hop">Hip-Hop</option>
-            <option value="Gospel">Gospel</option>
-            <option value="Reggae">Reggae</option>
-            <option value="Dancehall">Dancehall</option>
-          </select>
-        </div>
+        <form id="uploadForm" onsubmit="handleTrackUpload(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">Song Title *</label>
+            <input type="text" id="songTitle" required placeholder="e.g. Chitibu - Dear Mama" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-purple-500">
+          </div>
 
-        <div>
-          <label class="block text-xs font-semibold text-gray-300 mb-1">Select Song File (MP3) *</label>
-          <input type="file" id="songFileInput" accept="audio/*" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-xs text-gray-300 focus:outline-none focus:border-purple-500">
-        </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">Genre *</label>
+            <select id="songGenre" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-purple-500">
+              <option value="Afrobeat">Afrobeat</option>
+              <option value="Amapiano">Amapiano</option>
+              <option value="Hip-Hop">Hip-Hop</option>
+              <option value="Gospel">Gospel</option>
+              <option value="Reggae">Reggae</option>
+              <option value="Dancehall">Dancehall</option>
+            </select>
+          </div>
 
-        <div>
-          <label class="block text-xs font-semibold text-gray-300 mb-1">Select Cover Image</label>
-          <input type="file" id="songImageInput" accept="image/*" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-xs text-gray-300 focus:outline-none focus:border-purple-500">
-        </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">Select Song File (MP3) *</label>
+            <input type="file" id="songFileInput" accept="audio/*" required class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-xs text-gray-300 focus:outline-none focus:border-purple-500">
+          </div>
 
-        <button type="submit" id="submitBtn" class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm transition neon-glow">
-          Upload Song Now
-        </button>
-      </form>
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">Select Cover Image</label>
+            <input type="file" id="songImageInput" accept="image/*" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-xs text-gray-300 focus:outline-none focus:border-purple-500">
+          </div>
+
+          <button type="submit" id="submitBtn" class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm transition neon-glow">
+            Upload Song Now
+          </button>
+        </form>
+      </div>
+
     </div>
   </div>
 
   <script>
     const CLOUD_NAME = "glaxj97u"; 
     const UPLOAD_PRESET = "glaxj97u";
+    
+    // ADMIN PASSWORD FOR UPLOADING MUSIC
+    const ADMIN_PASSWORD = "chitibu2026";
 
     const initialTracks = [
       {
@@ -220,6 +250,22 @@
 
     function saveTracks() {
       localStorage.setItem("chitibu_tracks", JSON.stringify(tracks));
+    }
+
+    function checkPassword() {
+      const inputPass = document.getElementById("adminPasswordInput").value;
+      if (inputPass === ADMIN_PASSWORD) {
+        document.getElementById("passwordSection").classList.add("hidden");
+        document.getElementById("uploadFormSection").classList.remove("hidden");
+        document.getElementById("adminPasswordInput").value = "";
+      } else {
+        alert("Incorrect Admin Password!");
+      }
+    }
+
+    function lockAdminPanel() {
+      document.getElementById("uploadFormSection").classList.add("hidden");
+      document.getElementById("passwordSection").classList.remove("hidden");
     }
 
     function renderTracks() {
@@ -368,7 +414,6 @@
       submitBtn.textContent = "Uploading song... Please wait...";
 
       try {
-        // 1. Upload Audio using 'auto' endpoint to support audio/video formats
         const audioFormData = new FormData();
         audioFormData.append("file", songFileInput);
         audioFormData.append("upload_preset", UPLOAD_PRESET);
@@ -387,7 +432,6 @@
 
         const audioUrl = audioData.secure_url;
 
-        // 2. Upload Cover Image (Optional)
         let coverUrl = `https://picsum.photos/400/400?random=${Date.now()}`;
         if (songImageInput) {
           const imageFormData = new FormData();
@@ -404,7 +448,6 @@
           }
         }
 
-        // 3. Save Track
         const newTrack = {
           id: Date.now().toString(),
           title: title,
@@ -422,6 +465,7 @@
         renderTracks();
 
         document.getElementById("uploadForm").reset();
+        lockAdminPanel();
         toggleAdminModal();
         alert("Song uploaded successfully!");
       } catch (error) {
