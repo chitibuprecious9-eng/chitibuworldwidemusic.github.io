@@ -216,9 +216,9 @@
   </div>
 
   <script>
-    // Configure your Cloudinary keys here
-    const CLOUD_NAME = "YOUR_CLOUD_NAME_HERE"; 
-    const UPLOAD_PRESET = "YOUR_UPLOAD_PRESET_HERE";
+    // Cloudinary details configured directly from your account
+    const CLOUD_NAME = "glaxj97u"; 
+    const UPLOAD_PRESET = "glaxj97u";
 
     const initialTracks = [
       {
@@ -444,7 +444,7 @@
         alert("Song uploaded successfully!");
       } catch (error) {
         console.error(error);
-        alert("Upload failed. Please double check your Cloud Name and Upload Preset in the code.");
+        alert("Upload failed. Please double check your internet connection.");
       } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = "Upload Song Now";
